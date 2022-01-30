@@ -1,22 +1,9 @@
 #include <stdio.h>
-void read_text(const char* file_name)
+#include <stdlib.h>
+int main()
 {
-	char line[1024]={0};
-	FILE *file = fopen(file_name,"rt");
-	if(!file)
-		return;
-	while(1)
-	{
-		//文件读取结束
-		if(EOF == fscanf(file,"%s",line))
-			break;
-		printf("%s\n",line);
-	}
-	fclose(file);
- 
-}
-int main(int argc, char* argv[])
-{
-	read_text("test.txt");
-	return 0;
-}
+    FILE *fp = fopen("test.txt","r");
+    char n[100];
+    fgets(n,sizeof(n),fp);
+    printf("%s",n);
+ }
